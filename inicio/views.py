@@ -4,10 +4,15 @@ from datetime import datetime
 from django.http import HttpResponse
 from django.template import Template, Context, loader
 
+from inicio.models import Cliente
+
 import random
 
 def inicio(request):
-    return HttpResponse('Bienvenidos a mi INICIO!!!')
+    #v1
+    #return HttpResponse('Bienvenidos a mi INICIO!!!')
+    
+    return render(request,'inicio/index.html')
 
 def template1(request, nombre, apellido):
     fecha = datetime.now()
@@ -75,3 +80,8 @@ def probando(request):
     numeros = random.choices(lista, k=50)
     
     return render(request,'probando_if_for.html', {'numeros': numeros})
+
+def crear_cliente(request, apno, email):
+    cliente = Cliente(apno=apno, email=email)
+    cliente.save()
+    return render(request,'cliente_templates/creacion.html', {"cliente":cliente})
