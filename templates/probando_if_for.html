@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diego Luna</title>
+</head>
+<body>
+    <ul>
+        
+        {% for num in numeros %}
+            {% if  num > 250%}
+                <li style="color:red"> Numero: {{num}} </li>
+            {% else %}
+                <li style="color:blue"> Numero: {{num}} </li>
+            {% endif %}
+        {% endfor %}
+        
+    </ul>   
+</body>
+</html>
